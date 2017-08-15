@@ -23,7 +23,7 @@ You can install the `kubectl` using the package manager of your OS. In this case
 
 `$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -`
 
-- Then you need to add the official kubernetes repository at `/etc/apt/source.list`
+- Then you need to add the official kubernetes repository in `/etc/apt/source.list`
 
 ```
 $ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
