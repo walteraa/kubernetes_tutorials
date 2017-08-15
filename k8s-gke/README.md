@@ -119,3 +119,8 @@ CURRENT   NAME          CLUSTER                                       AUTHINFO  
 *         gke-central   gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central   
 ```
 
+Now you can Enjoy it! :smiley:
+
+# Creating resources
+
+You can read this tutorial about [resources creation in kubernetes](#)(TODO: create tutorial). 
