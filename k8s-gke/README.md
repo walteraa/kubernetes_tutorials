@@ -16,8 +16,8 @@ Then you need extract the content and execute the installation script.
 Make sure that the `gcloud` command is able.
 
 ```
-which gcloud
-${PATH_OF_INSTALLATION}/google-cloud-sdk/bin/gcloud
+$ which gcloud
+#{PATH_OF_INSTALLATION}/google-cloud-sdk/bin/gcloud
 ```
 
 Now you are able to use `gcloud` command.
@@ -26,18 +26,18 @@ Now you are able to use `gcloud` command.
 # Creating your google cloud projet
 
 Once you would logged in your google cloud account, go to [project creation section](https://console.cloud.google.com/projectcreate) in your console using browser, and create your project.
-When you put the project name in the textfield, an ID will appear bellow showing a text similar to `Your project ID will be ${PROJECT_ID}`.
-This `${PROJECT_ID}` is important for the next step, then save this information.
+When you put the project name in the textfield, an ID will appear bellow showing a text similar to `Your project ID will be #{PROJECT_ID}`.
+This `#{PROJECT_ID}` is important for the next step, then save this information. For this tutorial, I am using a project named `corc-tutorial`. 
 
 # Authenticating and setting up your google cloud environment
 
 To authenticate in your google cloud account, you should use the command 
 
-`gcloud auth login`
+`$ gcloud auth login`
 
 Which will show an authentication URL, then you need open this URL in your browser and sign in your google account. The command will lock waiting for your sign in action and after you login successfully an instruction for setup your project ID will Appear. Now you need use the command to define the project that you will be using 
 
-`gcloud config set project ${PROJECT_ID}`
+`gcloud config set project corc-tutorial`
 
 # Creating GKE cluster
 
@@ -46,11 +46,35 @@ Which will show an authentication URL, then you need open this URL in your brows
 Now we will create our GKE cluster in `us-central1-a` zone using the command
 
 ```
-gcloud container cluster create central-cluster --zone=us-central1-a \
+$ gcloud container cluster create gke-central --zone=us-central1-a \
                                      --num-nodes=3 \
                                      --scopes "cloud-platform,storage-ro,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
 
-This command means that we are creating a cluster named `central-cluster` at `us-central1-a` zone containing *3 nodes* and using the scopes listed in the parameter `--scopes`.
+This command means that we are creating a cluster named `gke-central` at `us-central1-a` zone containing *3 nodes* and using the scopes listed in the parameter `--scopes`.
 
 After completing the cluster setup, a cluster summary will appear.
+
+# Connecting the GKE cluster with your kubernetes client(kubectl)
+
+## Making more configuration
+Before connect your GKE cluster in the kubernetes client, you need to make some configurations in the `gcloud` configuration referring to the way that the kubernetes connect to Google. Then, you need make `kubectl` uses cluster client cert or basic authentications, to do that you just need to execute
+
+`$ gcloud config set container/use_client_certificate True`
+
+or 
+
+`$ export CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=True`
+
+(Or both to make sure that it is working)
+
+## Now really connect kubectl to GKE cluster
+
+The command used below can be obtained from the [Google Container Engine Panel](https://console.cloud.google.com/kubernetes/list) clicking in the *Connect* button
+
+`$ gcloud container clusters get-credentials gke-central --zone us-central1-a --project corc-tutorial`
+
+If the command is executed successfully, a confirmation about kubeconfig entry creation for `gke-central` will appear.
+
+
+
