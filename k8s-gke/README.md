@@ -76,5 +76,46 @@ The command used below can be obtained from the [Google Container Engine Panel](
 
 If the command is executed successfully, a confirmation about kubeconfig entry creation for `gke-central` will appear.
 
+# Making sure that the configurations was created successfully
 
+To make sure that everything until here works fine, we can run two commands
+
+- Verifying if the cluster was added in kubernetes configuration
+
+```
+$ kubectl config get-contexts
+CURRENT   NAME          CLUSTER                                       AUTHINFO                                      NAMESPACE
+*         gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central   
+```
+
+- Verifying if you are able to list resources from cluster
+
+```
+kubectl get pods --all-namespaces
+NAMESPACE           NAME                                                    READY     STATUS    RESTARTS   AGE
+kube-system         fluentd-gcp-v2.0-6vnpd                                  2/2       Running   0          1h
+kube-system         fluentd-gcp-v2.0-hgjhw                                  2/2       Running   0          1h
+kube-system         heapster-v1.3.0-4004699650-x156r                        2/2       Running   0          1h
+kube-system         kube-dns-3664836949-ffg3c                               3/3       Running   0          1h
+kube-system         kube-dns-3664836949-g24l8                               3/3       Running   0          1h
+kube-system         kube-dns-autoscaler-2667913178-8mjvn                    1/1       Running   0          1h
+kube-system         kube-proxy-gke-gke-central-default-pool-a83bdeac-d82l   1/1       Running   0          1h
+kube-system         kube-proxy-gke-gke-central-default-pool-a83bdeac-jjb7   1/1       Running   0          1h
+kube-system         kubernetes-dashboard-2917854236-qww30                   1/1       Running   0          1h
+kube-system         l7-default-backend-1044750973-qpzn5                     1/1       Running   0          1h
+```
+
+# Making your life easier
+
+Probably you realized that the name `gke_corc-tutorial_us-central1-a_gke-central` is a kinda large, somethimes you will need to use this name to get or create some resource from a specific context, but for our happiness, we can use the command below to make the context name smaller
+
+`$ kubectl config rename-context gke_corc-tutorial_us-central1-a_gke-central gke-central`
+
+Then you can check if the context name was changed
+
+```
+$ kubectl config get-contexts
+CURRENT   NAME          CLUSTER                                       AUTHINFO                                      NAMESPACE
+*         gke-central   gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central   
+```
 
