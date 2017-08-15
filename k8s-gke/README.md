@@ -1,6 +1,7 @@
 # Setting up google cloud sdk
+*_Notice¹: I'm considering that you complete the tutorial "Setting up kubernetes" before start this tutorial._*
 
-*_Notice: This tutorial was developed over `Ubuntu 16.04`, maybe you'll need change this step depending on your OS_*
+*_Notice²: This tutorial was developed over `Ubuntu 16.04`, maybe you'll need change this step depending on your OS_*
 
 To setup your gke cluster, you need to get the Google cloud SDK. First of all, you should download the newest version of Google SDK(which was `165.0.0` when this tutorial was made) using the command below.
 
@@ -38,4 +39,18 @@ Which will show an authentication URL, then you need open this URL in your brows
 
 `gcloud config set project ${PROJECT_ID}`
 
+# Creating GKE cluster
 
+*_Notice: before starting this step, you will need activate the `Google Container Engine API` in the [GKE painel](https://console.cloud.google.com/apis/api/container.googleapis.com/overview). For this GKE cluster, I will use the `us-central1-a` as zone and a cluster containing 3 nodes._*
+
+Now we will create our GKE cluster in `us-central1-a` zone using the command
+
+```
+gcloud container cluster create central-cluster --zone=us-central1-a \
+                                     --num-nodes=3 \
+                                     --scopes "cloud-platform,storage-ro,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
+```
+
+This command means that we are creating a cluster named `central-cluster` at `us-central1-a` zone containing *3 nodes* and using the scopes listed in the parameter `--scopes`.
+
+After completing the cluster setup, a cluster summary will appear.
