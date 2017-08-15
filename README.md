@@ -97,5 +97,6 @@ Client Veddrsion: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.3", GitCom
 - [Setting up an Azure kubernetes cluster](#)
 - [Setting up an on-premises kubernetes cluster](#)
 - [Setting up a hybrid kubernetes federation](#)
-
+- [Operating a kubernetes cluster](#)
+- [Operating a kubernetes federation](#)
 

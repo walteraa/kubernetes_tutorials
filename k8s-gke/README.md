@@ -25,7 +25,7 @@ Now you are able to use `gcloud` command.
 
 # Creating your google cloud projet
 
-Once you log in your google cloud account, go to [project creation section](https://console.cloud.google.com/projectcreate) in your console using browser, and create your project.
+Once you would logged in your google cloud account, go to [project creation section](https://console.cloud.google.com/projectcreate) in your console using browser, and create your project.
 When you put the project name in the textfield, an ID will appear bellow showing a text similar to `Your project ID will be #{PROJECT_ID}`.
 This `#{PROJECT_ID}` is important for the next step, then save this information. For this tutorial, I am using a project named `corc-tutorial`. 
 
@@ -119,8 +119,7 @@ CURRENT   NAME          CLUSTER                                       AUTHINFO  
 *         gke-central   gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central   
 ```
 
-Now you can Enjoy it! :smiley:
 
 # Creating resources
 
-You can read this tutorial about [resources creation in kubernetes](#)(TODO: create tutorial). 
+You can read this tutorial about [Operating a kubernetes cluster](#)(TODO: create tutorial). 
