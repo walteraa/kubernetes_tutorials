@@ -1,3 +1,7 @@
+# What is kubernetes
+
+Kubernetes is a open-source platform used to automate deployment, scale and operate applications running in containers. :whale:
+
 # Kubernetes client(kubectl)
 
 The `kubectl` is a command line interface to operate kubernetes clusters. This tool make possible creates kubernetes resources(e.g.: Pods, Deployments, Services, DaemonSets, etc...) in a kubernetes cluster using commands operations, flags, and yaml files.
@@ -49,11 +53,44 @@ $ chmod +x kubectl
 $ sudo mv kubectl /usr/local/bin/kubectl
 ```
 
-## Checking if the `kubectl` was installed properly
+## Checking if the kubectl was installed properly
 
-To check if the `kubectl` was installed, you can perform a command using kubectl(e.g.: help, version)
+To check if the `kubectl` was installed, you can perform a command using kubectl(e.g.: help, version), for example
 
 ```
 $ kubectl version
 Client Version: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.3", GitCommit:"2c2fe6e8278a5db2d15a013987b53968c743f2a1", GitTreeState:"clean", BuildDate:"2017-08-03T07:00:21Z", GoVersion:"go1.8.3", Compiler:"gc", Platform:"linux/amd64"}
 ```
+
+# Kubernetes Federation "administrator"(kubefed)
+
+The `kubefed` is a admin tool to coltrol a Kubernetes cluster federation. It is used to initialize/join/unjoin a federation in kubernetes. With a federation you can deploy, scale and/or operate applications cross clusters in the same federation.
+
+## Standalone installation
+
+
+For a standalone installation, you just need download the binary file, give right permission and move it to bin path.
+
+- Downloading the binary from the official repository
+
+`$ wget  https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubefed`
+
+- Give the permissions to the binary and move it to bin path
+
+```
+$ chmod +x kubefed
+$ sudo mv kubectl /usr/local/bin/kubefed
+```
+
+## Checking if the kubectl was installed properly
+
+To check if the `kubefed` was installed, you can perform a command using kubefed(e.g.: help, version), for example
+
+```
+$ kubefed version
+Client Veddrsion: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.3", GitCommit:"2c2fe6e8278a5db2d15a013987b53968c743f2a1", GitTreeState:"clean", BuildDate:"2017-08-03T07:00:21Z", GoVersion:"go1.8.3", Compiler:"gc", Platform:"linux/amd64"}
+```
+
+
+
+
