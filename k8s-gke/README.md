@@ -5,13 +5,13 @@
 
 To setup your gke cluster, you need to get the Google cloud SDK. First of all, you should download the newest version of Google SDK(which was `165.0.0` when this tutorial was made) using the command below.
 
-`wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz`
+`$ wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-165.0.0-linux-x86_64.tar.gz`
 
 Then you need extract the content and execute the installation script.
 
-`tar -xvf google-cloud-sdk-165.0.0-linux-x86_64.tar.gz`
+`$ tar -xvf google-cloud-sdk-165.0.0-linux-x86_64.tar.gz`
 
-`./install.sh`
+`$ ./install.sh`
 
 Make sure that the `gcloud` command is able.
 
@@ -37,7 +37,7 @@ To authenticate in your google cloud account, you should use the command
 
 Which will show an authentication URL, then you need open this URL in your browser and sign in your google account. The command will lock waiting for your sign in action and after you login successfully an instruction for setup your project ID will Appear. Now you need use the command to define the project that you will be using 
 
-`gcloud config set project corc-tutorial`
+`$ gcloud config set project corc-tutorial`
 
 # Creating GKE cluster
 
@@ -55,7 +55,7 @@ This command means that we are creating a cluster named `gke-central` at `us-cen
 
 After completing the cluster setup, a cluster summary will appear.
 
-# Connecting the GKE cluster with your kubernetes client(kubectl)
+# Authorizing the kubernetes client(kubectl) to operate the GKE cluster
 
 ## Making more configuration
 Before connect your GKE cluster in the kubernetes client, you need to make some configurations in the `gcloud` configuration referring to the way that the kubernetes connect to Google. Then, you need make `kubectl` uses cluster client cert or basic authentications, to do that you just need to execute
@@ -68,7 +68,7 @@ or
 
 (Or both to make sure that it is working)
 
-## Now really connect kubectl to GKE cluster
+## Getting GKE cluster credentials
 
 The command used below can be obtained from the [Google Container Engine Panel](https://console.cloud.google.com/kubernetes/list) clicking in the *Connect* button
 
@@ -76,7 +76,7 @@ The command used below can be obtained from the [Google Container Engine Panel](
 
 If the command is executed successfully, a confirmation about kubeconfig entry creation for `gke-central` will appear.
 
-# Making sure that the configurations was created successfully
+# Making sure that the configurations were created successfully
 
 To make sure that everything until here works fine, we can run two commands
 
@@ -91,7 +91,7 @@ CURRENT   NAME          CLUSTER                                       AUTHINFO  
 - Verifying if you are able to list resources from cluster
 
 ```
-kubectl get pods --all-namespaces
+$ kubectl get pods --all-namespaces
 NAMESPACE           NAME                                                    READY     STATUS    RESTARTS   AGE
 kube-system         fluentd-gcp-v2.0-6vnpd                                  2/2       Running   0          1h
 kube-system         fluentd-gcp-v2.0-hgjhw                                  2/2       Running   0          1h
