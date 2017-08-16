@@ -112,12 +112,26 @@ To make sure that everything until here works fine, we can run two commands
 ```
 $ kubectl config get-contexts
 CURRENT   NAME          CLUSTER                                       AUTHINFO                                      NAMESPACE
-*          az-europe-az-west-europe-4fecb0mgmt     az-europe-az-west-europe-4fecb0mgmt           az-europe-az-west-europe-4fecb0mgmt-admin     
+*         az-europe-az-west-europe-4fecb0mgmt     az-europe-az-west-europe-4fecb0mgmt           az-europe-az-west-europe-4fecb0mgmt-admin     
 ```
 
 - Verifying if you are able to list resources from cluster
-(TODO)
 
+```
+$ kubectl get pods --all-namespaces
+NAMESPACE     NAME                                            READY     STATUS    RESTARTS   AGE
+kube-system   heapster-2708163903-nz4wn                       2/2       Running   0          8s
+kube-system   kube-addon-manager-k8s-master-ef94b666-0        1/1       Running   0          20m
+kube-system   kube-apiserver-k8s-master-ef94b666-0            1/1       Running   0          21m
+kube-system   kube-controller-manager-k8s-master-ef94b666-0   1/1       Running   1          21m
+kube-system   kube-dns-v20-01wlm                              3/3       Running   0          20m
+kube-system   kube-dns-v20-jcmdx                              3/3       Running   0          20m
+kube-system   kube-proxy-nwcm0                                1/1       Running   0          20m
+kube-system   kube-proxy-x7vvw                                1/1       Running   0          20m
+kube-system   kube-scheduler-k8s-master-ef94b666-0            1/1       Running   1          20m
+kube-system   kubernetes-dashboard-3995387264-x0k4m           1/1       Running   0          19m
+kube-system   tiller-deploy-3019006398-l5t7p                  1/1       Running   0          20m
+```
 # Making your life easier
 
 Probably you realized that the name `z-europe-az-west-europe-4fecb0mgmt` is a kinda large, somethimes you will need to use this name to get or create some resource from a specific context, but for our happiness, we can use the command below to make the context name smaller
@@ -129,7 +143,7 @@ Then you can check if the context name was changed
 ```
 $ kubectl config get-contexts
 CURRENT   NAME          CLUSTER                                       AUTHINFO                                      NAMESPACE
-*          az-europe     az-europe-az-west-europe-4fecb0mgmt           az-europe-az-west-europe-4fecb0mgmt-admin     
+*         az-europe     az-europe-az-west-europe-4fecb0mgmt           az-europe-az-west-europe-4fecb0mgmt-admin     
 ```
 
 # Creating resources
