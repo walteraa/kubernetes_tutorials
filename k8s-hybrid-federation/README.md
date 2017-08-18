@@ -9,4 +9,16 @@ To setup a federation, you'll need at least two clusters and the `kubefed` tools
 - [Setting up an on-premses cluster](../k8s-on-prem)
 - [Setting up an Azure cluster](../k8s-azure)
 
+Once you have the requirements to setup your federation, you can start creating your federation. For this tutorial, I'll create a federation containing all clusters listed above.
+
+```
+kubectl config get-contexts
+CURRENT   NAME                CLUSTER                                       AUTHINFO                                       NAMESPACE
+*         az-europe-cluster   az-europe-cluster-az-europe-4fecb0mgmt        az-europe-cluster-az-europe-4fecb0mgmt-admin
+          gke-central         gke_corc-tutorial_us-central1-a_gke-central   gke_corc-tutorial_us-central1-a_gke-central
+          on-prem             on-prem                                       on-prem
+```
+
+## Creating the managed DNS zone
+
 
