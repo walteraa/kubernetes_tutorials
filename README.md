@@ -18,13 +18,12 @@ In this tutorial you can find instructions about how to download the tools and s
 
 In this section, you'll find instructions about how change kubernetes code and test it in a cluster. For this section, I will use `kubectl` and `federation-controller-manager` as examples.
 
-* Setting up the development environment
-  * [How kubernetes workspace works](#)
+* [Setting up the development environment](k8s-development)
 * Building and testing kubernetes clients
-  * [kubectl (WIP)](#)
+  * [kubectl (WIP)](k8s-development/kubectl)
   * [kubefed (TODO)](#)
 * Building and testing kubernetes component in a live cluster
-  * [federation-controller-manager (WIP)](#)
+  * [federation-controller-manager (WIP)](k8s-development/federation-controller-manager)
   * [federation-apiserver (TODO)](#)
   * [kube-controller-manager (TODO)](#)
   * [kube-apiserver (TODO)](#)
