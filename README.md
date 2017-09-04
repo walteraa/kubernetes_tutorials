@@ -23,8 +23,8 @@ In this section, you'll find instructions about how change kubernetes code and t
   * [kubectl (WIP)](k8s-development/kubectl)
   * [kubefed (TODO)](#)
 * Building and testing kubernetes component in a live cluster
-  * [federation-controller-manager (WIP)](k8s-development/federation-controller-manager)
+  * [kube-controller-manager (WIP)](k8s-development/kube-controller-manager)
+  * [federation-controller-manager (WIP)]  
   * [federation-apiserver (TODO)](#)
-  * [kube-controller-manager (TODO)](#)
   * [kube-apiserver (TODO)](#)
 
