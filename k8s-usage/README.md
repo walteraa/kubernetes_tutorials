@@ -94,9 +94,9 @@ Client Veddrsion: version.Info{Major:"1", Minor:"7", GitVersion:"v1.7.3", GitCom
 
 # Other tutorials
 - [Setting up a Google cloud kubernetes cluster](k8s-gke)
-- [Setting up an Azure kubernetes cluster](#)
+- [Setting up an Azure kubernetes cluster](k8s-azure)
 - [Setting up an on-premises kubernetes cluster](k8s-on-prem)
-- [Setting up a hybrid kubernetes federation](#)
-- [Operating a kubernetes cluster](#)
-- [Operating a kubernetes federation](#)
+- [Setting up a hybrid kubernetes federation](k8s-hybrid-federation)
+- [Operating a kubernetes cluster(TODO)](#)
+- [Operating a kubernetes federation(TODO)](#)
 
