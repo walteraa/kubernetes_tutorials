@@ -44,7 +44,7 @@ For a standalone installation, you just need download the binary file, give righ
 
 - Downloading the binary from the official repository
 
-`$ wget  https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl`
+`$ wget  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl`
 
 - Give the permissions to the binary and move it to bin path
 
@@ -73,13 +73,13 @@ For a standalone installation, you just need download the binary file, give righ
 
 - Downloading the binary from the official repository
 
-`$ wget  https://storage.googleapis.com/kubernetes-release/release/(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubefed`
+`$ wget  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubefed`
 
 - Give the permissions to the binary and move it to bin path
 
 ```
 $ chmod +x kubefed
-$ sudo mv kubectl /usr/local/bin/kubefed
+$ sudo mv kubefed /usr/local/bin/kubefed
 ```
 
 ## Checking if the kubectl was installed properly
