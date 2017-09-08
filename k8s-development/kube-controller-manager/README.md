@@ -42,8 +42,6 @@ To build the image, you will need a simple Dockerfile to define your image over 
 FROM gcr.io/google_containers/ubuntu-slim:0.9
 
 ADD kube-controller-manager /usr/bin
-
-CMD ["cmod", "+x", "/usr/bin/kube-controller-manager"]
 ```
 
 You should create this Dockerfile in the same location where the `kube-controller-manager` binary is. Then, execute the `docker build` command inside this directory, using the repository name and tag where you will set in the kube-controller manifest. For example:
