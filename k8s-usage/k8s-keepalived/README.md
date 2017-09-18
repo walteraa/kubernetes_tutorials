@@ -105,7 +105,7 @@ my-service   10.96.197.241   105.156.51.70    80:31952/TCP   5s
 The keepalived-vip is the component which manages the network interface adding virtual IPs in the interface making possible access the services from computers out of kubernetes cluster, so is necessary deployt it in your on-premises cluster using the following yaml(`keepalived-vip-ds.yaml`)
 
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
@@ -211,7 +211,7 @@ Once we have the infrastructure as described before(Routeble CIDR and firewall r
 
 Then, we can see something like that
 
-```json
+```conf
 global_defs {
   vrrp_version 3
   vrrp_iptables KUBE-KEEPALIVED-VIP
