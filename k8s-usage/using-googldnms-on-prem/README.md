@@ -1,4 +1,4 @@
-# Service Discovery in an on-premises cluster using Google DNS as DNS provider
+# Service Discovery in an on-premises cluster using Google DNS as DNS provider(Using workaround)
 
 In this tutorial we intent to explain how to deploy an on-premises Kubernetes Federation using Google DNS.
 
@@ -92,7 +92,7 @@ ubuntu@walter-master:~$ kubectl create secret -n federation-system generic dns-c
 secret "dns-credential" created
 ```
 
-Now we are able to mount the secret in the federation-controller-manager pod/container by configuring its deployment spec
+Now we are able to mount the secret in the federation-controller-manager pod/container by editing its deployment spec
 
 ```bash
 ubuntu@walter-master:~$ kubectl edit deploy -n federation-system   kfed-controller-manager
@@ -168,7 +168,7 @@ status:
   replicas: 0
 ```
 
-Exmplaining: We used the `dns-credential` secret to create a volume with the same name, then we mount this volume in the `/etc/federation/google` path and after that, the federation-controller-manager container will has a credential file `/etc/federation/google/dns-credential.json`. So, now we are able to set the credential file path to `GOOGLE_APPLICATION_CREDENTIALS` environment variable, which will be used by the Google DNS provider to authenticate in the Google Cloud API.
+Explaining: We used the `dns-credential` secret to create a volume with the same name, then we mount this volume in the `/etc/federation/google` path and after that, the federation-controller-manager container will has a credential file `/etc/federation/google/dns-credential.json`. So, now we are able to set the credential file path to `GOOGLE_APPLICATION_CREDENTIALS` environment variable, which will be used by the Google DNS provider to authenticate in the Google Cloud API.
 
 > Important: At the moment I'm writing this, there is a bug in the Google DNS provider(which is registered [here](https://github.com/kubernetes/kubernetes/issues/52726)) which the Project ID isn't get and keeping empty, then the DNS informations couldn't be retrieved and manipulated by the federation-controller-manager. The step below should be followed only if you are getting this issue.
 
