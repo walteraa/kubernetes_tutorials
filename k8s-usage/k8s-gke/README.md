@@ -46,7 +46,7 @@ Which will show an authentication URL, then you need open this URL in your brows
 Now we will create our GKE cluster in `us-central1-a` zone using the command
 
 ```
-$ gcloud container cluster create gke-central --zone=us-central1-a \
+$ gcloud container clusters create gke-central --zone=us-central1-a \
                                      --num-nodes=3 \
                                      --scopes "cloud-platform,storage-ro,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
