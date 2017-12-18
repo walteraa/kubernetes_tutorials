@@ -134,6 +134,8 @@ spec:
               fieldPath: metadata.namespace
         - name: GOOGLE_APPLICATION_CREDENTIALS  #Attributing the absolute path of the credential file to Google's credentials variable
           value: /etc/federation/google/dns-credential.json
+	  - name: PROJECT_ID  #Project ID environment variable
+          value: corc-tutorial
         image: gcr.io/google_container/hyperkube-amd64:v1.8.0
         imagePullPolicy: IfNotPresent
         name: controller-manager
@@ -207,13 +209,13 @@ func newCloudDns(config io.Reader) (*Interface, error) {
 }
 ```
 
-I was surprised that `projectID` is empty, once this variable is used to create a Cloud DNS provider instance and consequently to perform queries to the DNS endpoint properly. Then I make `projectID` has the value `corc-dns`, which is the project name that I have created the `federation.walteralves.me` zone, which is the zone that the kubernetes federation will manage the DNS entries to service Discovery
+I was surprised that `projectID` is empty, once this variable is used to create a Cloud DNS provider instance and consequently to perform queries to the DNS endpoint properly. Then I did a workaround which does the value of `projectID` being the same value of `PROJECT_ID` environment variable, which is the project name that I have created the `federation.walteralves.me` zone and is defined in the yaml above, this project name is the same which has the zone that the kubernetes federation will manage the DNS entries for Service Discovery
 
 ```go
 // newCloudDns creates a new instance of a Google Cloud DNS Interface.
 func newCloudDns(config io.Reader) (*Interface, error) {
 	//projectID, _ := metadata.ProjectID() // On error we get an empty string, which is fine for now.
-  projectID := "corc-tutorial"
+  projectID := os.Getenv("PROJECT_ID")
   glog.Info("projectID = ",projectID)
 
 	var tokenSource oauth2.TokenSource
